@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MEME Website</title>
+    <style>
+      @keyframes backgroundAnimation {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background: linear-gradient(135deg, #f06, #4a90e2, #34e89e);
+        background-size: 400% 400%;
+        animation: backgroundAnimation 15s ease infinite;
+        color: #fff;
+        transition: all 0.5s ease-in-out;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+        font-size: 2.5em;
+        font-weight: bold;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 10px 20px;
+        border-radius: 10px;
+        background: linear-gradient(45deg, red, darkblue);
+        color: #fff;
+        transition: transform 0.5s;
+      }
+      h1:hover {
+        transform: scale(1.1);
+      }
+
+      .container {
+        text-align: center;
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        position: relative;
+        z-index: 1;
+        transition: transform 0.5s;
+      }
+      .container:hover {
+        transform: translateY(-10px);
+      }
+
+      .container::before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        z-index: -1;
+        border-radius: 8px;
+        background: linear-gradient(45deg, red, darkblue);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .meme-image {
+        max-width: 100%;
+        height: auto;
+        max-height: 400px; /* Setting a maximum height for consistency */
+        border-radius: 8px;
+      }
+
+      p {
+        color: #6c757d;
+        margin-top: 20px;
+        transition: color 0.5s;
+      }
+
+      .container:hover p {
+        color: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Meme Website using Flask</h1>
+    <div class="container my-3">
+        <div class="text-center">
+            <img src="{{meme_pic}}" class="meme-image" alt="Meme image">
+        </div>
+    <p>Current subreddit : {{subreddit}}</p>
+    </div>
+  </body>
+</html>
